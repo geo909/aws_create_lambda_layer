@@ -6,7 +6,7 @@ s3_bucket-fh = tzanakis
 s3_key = Lambda/Code/$(zip_file)
 
 zip:
-	[ ! -e $(zip_file) ] || rm $(zip_file)
+	[ ! -e $(zip_file) ] || sudo rm $(zip_file)
 	7z a -x'!_trash' -x'!__pycache__' -x'!data.json' $(zip_file) ./$(code_folder)/*
 
 s3:
