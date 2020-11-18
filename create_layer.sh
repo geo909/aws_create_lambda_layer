@@ -14,7 +14,8 @@ zip -r9 $LAYERNAME.zip ${PKG_DIR}
 sudo rm -rf ${PKG_DIR}
 rm requirements.txt
 
-# First store to S3 then publish 
+# First store to S3 then publish
+# Doesn't work well with ferryhopper because my bucket is in a different region than the lambdas
 #aws s3 cp $LAYERNAME.zip s3://george-home/Lambda/Layers/$LAYERNAME.zip
 #aws lambda publish-layer-version --layer-name $LAYERNAME --content S3Bucket=george-home,S3Key=Lambda/Layers/$LAYERNAME.zip --compatible-runtimes python3.8
 
